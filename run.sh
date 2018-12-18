@@ -1,7 +1,6 @@
 #! /bin/bash
 #
 # run.sh
-# Copyright (C) 2018 vinopylpeng <vinopylpeng@tencent.com>
 #
 
 g++ -std=c++11 -pthread -I../3rdparty/include  -c -o textfeature.pb.o textfeature.pb.cc

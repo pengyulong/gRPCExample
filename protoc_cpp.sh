@@ -1,7 +1,6 @@
 #! /bin/bash
 #
 # protoc_cpp.sh
-# Copyright (C) 2018 app <app@tencent.com>
 #
 
 protoc --cpp_out=. textfeature.proto
