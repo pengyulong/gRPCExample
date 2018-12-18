@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package textfeature;
+
+service TextFeature{
+    // 简单RPC
+    rpc SimpleRPC(textRequest) returns (keyResponse) {}
+    // 服务端流式RPC
+    rpc ServerStreamRPC (sentenceRequest) returns (stream orderkeyResponse) {}
+    // 客户端流式RPC
+    rpc ClientStreamRPC(stream docsRequest) returns (SummaryKeyWords){}
+    // 双向流式RPC
+    rpc BidirectionalStreamRPC(stream docsRequest) returns (stream orderkeyResponse){}
+
+}
+message textRequest{
+    string text = 1;
+}
+
+message keyResponse{
+    string keywords = 1;
+}
+
+message orderkeyResponse{
+    int32 id = 1;
+    string keywords = 2;
+}
+
+message docsRequest{
+    int32 id = 1;
+    string text = 2;
+}
+message SummaryKeyWords{
+    repeated string keywords = 1;
+}
+
+message sentenceRequest{
+    repeated string text = 1;
+}
